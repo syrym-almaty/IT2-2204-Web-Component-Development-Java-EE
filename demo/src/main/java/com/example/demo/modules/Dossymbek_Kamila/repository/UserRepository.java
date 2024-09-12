@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.repository;
+package com.example.demo.modules.Dossymbek_Kamila.repository;
 
 import com.example.demo.modules.Abdikarimov_Aran.model.User;
 import org.springframework.stereotype.Repository;

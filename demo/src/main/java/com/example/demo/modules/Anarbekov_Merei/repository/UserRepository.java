@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.repository;
+package com.example.demo.modules.Anarbekov_Merei.repository;
 
 import com.example.demo.modules.Abdikarimov_Aran.model.User;
 import org.springframework.stereotype.Repository;
