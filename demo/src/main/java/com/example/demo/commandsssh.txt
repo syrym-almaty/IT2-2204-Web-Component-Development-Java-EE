@@ -6,3 +6,18 @@ ssh -T git@github.com
 
 git config --global user.email "dosymbekkamila@gmail.com"
 git config --global user.name "kamila"
+
+
+git push --set-upstream origin student-Kamila
+
+
+
+# try to connect without password check
+
+git remote set-url origin git@github.com:syrym-almaty/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab.git
+
+
+ssh-add -l
+
+
+ssh-add ~/.ssh/id_rsa
