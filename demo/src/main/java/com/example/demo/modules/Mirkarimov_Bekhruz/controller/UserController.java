@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.controller;
+package com.example.demo.modules.Mirkarimov_Bekhruz.controller;
 
 import com.example.demo.modules.Abdikarimov_Aran.model.User;
 import com.example.demo.modules.Abdikarimov_Aran.service.UserService;

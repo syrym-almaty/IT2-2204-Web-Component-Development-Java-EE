@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.model;
+package com.example.demo.modules.Makhambetkyzy_Madina.model;
 
 /**
  * The User class represents a user in the system.

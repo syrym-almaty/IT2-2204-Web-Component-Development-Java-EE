@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.service;
+package com.example.demo.modules.Orazbek_Miras.service;
 
 import com.example.demo.modules.Abdikarimov_Aran.model.User;
 import com.example.demo.modules.Abdikarimov_Aran.repository.UserRepository;

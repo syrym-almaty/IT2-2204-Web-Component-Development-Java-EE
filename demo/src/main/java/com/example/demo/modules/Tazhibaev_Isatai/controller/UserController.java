@@ -1,4 +1,4 @@
-package com.example.demo.modules.Abdikarimov_Aran.controller;
+package com.example.demo.modules.Tazhibaev_Isatai.controller;
 
 import com.example.demo.modules.Abdikarimov_Aran.model.User;
 import com.example.demo.modules.Abdikarimov_Aran.service.UserService;
