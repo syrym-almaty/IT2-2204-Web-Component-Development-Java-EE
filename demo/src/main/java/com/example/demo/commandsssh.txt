@@ -1,0 +1,8 @@
+ssh-keygen -t rsa -b 4096 -C "dosymbekkamila@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+
+git config --global user.email "dosymbekkamila@gmail.com"
+git config --global user.name "kamila"
