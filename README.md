@@ -27,6 +27,14 @@ git clone https://github.com/syrym-almaty/IT2-2204-SFT6310-32-Lab-Web-Component-
 
 cd IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab
 
+# Build and Run with One Command where the Dockerfile is located
+
+docker build -t my-spring-app . && docker run -p 8080:8080 my-spring-app
+
+# Command to Run
+
+docker-compose up --build
+
 # Create a new branch
 git checkout -b student-username
 
