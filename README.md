@@ -1,4 +1,4 @@
-# IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab
+# IT2-2204-Web-Component-Development-Java-EE
 
 ## Overview
 
@@ -26,6 +26,14 @@ First, clone the repository to your local machine using the following command:
 git clone https://github.com/syrym-almaty/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab.git
 
 cd IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab
+
+# Build and Run with One Command where the Dockerfile is located
+
+docker build -t my-spring-app . && docker run -p 8080:8080 my-spring-app
+
+# Command to Run
+
+docker-compose up --build
 
 # Create a new branch
 git checkout -b student-username
