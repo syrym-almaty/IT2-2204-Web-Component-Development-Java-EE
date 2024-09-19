@@ -23,6 +23,36 @@ https://git-scm.com/downloads
 First, clone the repository to your local machine using the following command:
 
 ```bash
+git config --global --list
+git config --global user.name "yourusernam "
+git config --global user.email "youremail"
+ls -al ~/.ssh
+ssh-keygen -t ed25519 -C "youremail"
+'secret key yourname'
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519
+ssh-add -l
+cat < ~/.ssh/id_ed25519.pub
+
+// please add yourkey here ---> https://github.com/settings/keys
+
+clip < ~/.ssh/id_ed25519.pub
+ssh -T git@github.com
+Hi yourusername! You've successfully authenticated, but GitHub does not provide shell access.'
+
+
+'in case if you cant push data use ssh tunnel'
+git remote set-url origin git@github.com:syrym-almaty/IT2-2204-Web-Component-Development-Java-EE.git
+git push --set-upstream origin master
+git push --u origin master
+
+git pull origin test
+git push origin test
+
+git push --force origin test 
+
+```
+```bash
 git clone git@github.com:syrym-almaty/IT2-2204-Web-Component-Development-Java-EE.git
 
 cd IT2-2204-Web-Component-Development-Java-EE
