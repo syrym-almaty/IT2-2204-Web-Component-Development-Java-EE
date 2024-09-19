@@ -21,3 +21,40 @@ ssh-add -l
 
 
 ssh-add ~/.ssh/id_rsa
+
+--------------------------------------
+# Build and Run with One Command where the Dockerfile is located
+
+docker build -t my-spring-app . && docker run -p 8080:8080 my-spring-app
+
+# Command to Run
+
+docker-compose up --build
+
+# Create a new branch
+git checkout -b student-username
+
+# Making Changes
+
+git status
+
+# Stage the files
+git add .
+
+# Commit your changes
+git commit -m "Your detailed commit message here"
+
+# Push changes to your branch
+git push origin student-username
+
+# Switch to main branch
+git checkout main
+
+# Pull the latest changes from the main branch
+git pull origin main
+
+# Switch back to your branch
+git checkout student-username
+
+# Merge the latest main branch changes into your branch
+git merge main
