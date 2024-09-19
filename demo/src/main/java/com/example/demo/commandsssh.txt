@@ -1,0 +1,60 @@
+ssh-keygen -t rsa -b 4096 -C "dosymbekkamila@gmail.com"
+eval "$(ssh-agent -s)"
+ssh-add -K ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub
+ssh -T git@github.com
+
+git config --global user.email "dosymbekkamila@gmail.com"
+git config --global user.name "kamila"
+
+
+git push --set-upstream origin student-Kamila
+
+
+
+# try to connect without password check
+
+git remote set-url origin git@github.com:syrym-almaty/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab.git
+
+
+ssh-add -l
+
+
+ssh-add ~/.ssh/id_rsa
+
+--------------------------------------
+# Build and Run with One Command where the Dockerfile is located
+
+docker build -t my-spring-app . && docker run -p 8080:8080 my-spring-app
+
+# Command to Run
+
+docker-compose up --build
+
+# Create a new branch
+git checkout -b student-username
+
+# Making Changes
+
+git status
+
+# Stage the files
+git add .
+
+# Commit your changes
+git commit -m "Your detailed commit message here"
+
+# Push changes to your branch
+git push origin student-username
+
+# Switch to main branch
+git checkout main
+
+# Pull the latest changes from the main branch
+git pull origin main
+
+# Switch back to your branch
+git checkout student-username
+
+# Merge the latest main branch changes into your branch
+git merge main
