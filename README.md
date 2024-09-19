@@ -1,4 +1,4 @@
-# IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab
+# IT2-2204-Web-Component-Development-Java-EE
 
 ## Overview
 
