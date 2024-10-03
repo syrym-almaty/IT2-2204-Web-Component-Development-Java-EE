@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/students")
@@ -25,12 +26,12 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id) {
+    public Student getStudentById(@PathVariable UUID id) {
         return studentService.getStudentById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable Long id) {
+    public void deleteStudent(@PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
 }
