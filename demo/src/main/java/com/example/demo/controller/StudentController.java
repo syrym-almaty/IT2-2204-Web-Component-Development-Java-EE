@@ -66,4 +66,16 @@ public class StudentController {
             @RequestBody Student updatedStudent) {
         return studentService.updateStudent(id, updatedStudent);
     }
+
+    @Operation(summary = "Delete Student", description = "Delete a student by their ID")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @DeleteMapping("/{id}")
+    public void deleteStudent(
+            @Parameter(description = "UUID of the student to delete", required = true)
+            @PathVariable UUID id) {
+        studentService.deleteStudent(id);
+    }
 }
