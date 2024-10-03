@@ -52,15 +52,18 @@ public class StudentController {
         return studentService.getStudentById(id);
     }
 
-    @Operation(summary = "Delete Student", description = "Delete a student by their ID")
+    @Operation(summary = "Update Student", description = "Update an existing student's information")
     @ApiResponses(value = {
-        @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
-        @ApiResponse(responseCode = "404", description = "Student not found")
+            @ApiResponse(responseCode = "200", description = "Student updated successfully"),
+            @ApiResponse(responseCode = "400", description = "Invalid input data"),
+            @ApiResponse(responseCode = "404", description = "Student not found")
     })
-    @DeleteMapping("/{id}")
-    public void deleteStudent(
-            @Parameter(description = "UUID of the student to delete", required = true)
-            @PathVariable UUID id) {
-        studentService.deleteStudent(id);
+    @PutMapping("/{id}")
+    public Student updateStudent(
+            @Parameter(description = "UUID of the student to update", required = true)
+            @PathVariable UUID id,
+            @Parameter(description = "Updated student object", required = true)
+            @RequestBody Student updatedStudent) {
+        return studentService.updateStudent(id, updatedStudent);
     }
 }
