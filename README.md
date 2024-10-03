@@ -2,6 +2,11 @@
 
 ---
 
+## Bekhruz update 10/03/2024
+
+
+---
+
 ## Welcome to the IT2-2204 Web Component Development project! Follow the instructions below to clone the repository, set up your environment, and start developing
 
 ---
