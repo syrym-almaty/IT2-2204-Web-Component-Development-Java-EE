@@ -31,3 +31,7 @@ build/
 
 ### VS Code ###
 .vscode/
+Labs/4_week/README.md
+Labs/5_week/README.md
+demo/src/main/java/com/example/demo/Dockerfile
+demo/src/main/java/com/example/demo/docker-compose.yml
