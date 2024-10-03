@@ -1,5 +1,5 @@
 package com.example.demo.service;
-
+import java.util.UUID;
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,11 +21,11 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    public Student getStudentById(Long id) {
+    public Student getStudentById(UUID id) {
         return studentRepository.findById(id).orElse(null);
     }
 
-    public void deleteStudent(Long id) {
+    public void deleteStudent(UUID id) {
         studentRepository.deleteById(id);
     }
 }

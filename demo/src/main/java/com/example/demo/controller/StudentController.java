@@ -1,5 +1,5 @@
 package com.example.demo.controller;
-
+import java.util.UUID;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,12 +25,12 @@ public class StudentController {
     }
 
     @GetMapping("/{id}")
-    public Student getStudentById(@PathVariable Long id) {
+    public Student getStudentById(@PathVariable UUID id) {
         return studentService.getStudentById(id);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteStudent(@PathVariable Long id) {
+    public void deleteStudent(@PathVariable UUID id) {
         studentService.deleteStudent(id);
     }
 }
