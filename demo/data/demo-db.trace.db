@@ -116,3 +116,7 @@ INSERT INTO "PUBLIC"."STUDENT"("ID","EMAIL","NAME")VALUES(?,?,?) [22018-224]
 2024-09-19 10:28:16.408522+05:00 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'1' (STUDENT: ""ID"" UUID NOT NULL)"; SQL statement:
 INSERT INTO "PUBLIC"."STUDENT"("ID","EMAIL","NAME")VALUES(?,?,?) [22018-224]
+2024-10-03 12:29:45.129609+05:00 jdbc[14]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Таблица "STUDENTS" не найдена
+Table "STUDENTS" not found; SQL statement:
+select * from students [42102-224]
