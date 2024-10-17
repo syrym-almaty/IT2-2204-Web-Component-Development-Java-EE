@@ -1,10 +1,9 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Column;
+import jakarta.persistence.*;
 import org.hibernate.annotations.GenericGenerator;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -13,8 +12,8 @@ public class Student {
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
-        name = "UUID",
-        strategy = "org.hibernate.id.UUIDGenerator"
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(columnDefinition = "uuid")
     private UUID id;
@@ -22,7 +21,15 @@ public class Student {
     private String name;
     private String email;
 
-    // Constructors
+    @ManyToMany
+    @JoinTable(
+            name = "enrollments",
+            joinColumns = @JoinColumn(name = "student_id"),
+            inverseJoinColumns = @JoinColumn(name = "course_id")
+    )
+    private Set<Course> courses = new HashSet<>();
+
+    // Конструкторы
     public Student() {}
 
     public Student(String name, String email) {
@@ -30,7 +37,7 @@ public class Student {
         this.email = email;
     }
 
-    // Getters and Setters
+    // Геттеры и сеттеры
     public UUID getId() {
         return id;
     }
@@ -47,11 +54,19 @@ public class Student {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Set<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(Set<Course> courses) {
+        this.courses = courses;
     }
 }
