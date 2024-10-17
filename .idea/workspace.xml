@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="671c6acc-0fd1-4691-b5c0-b42d5a3c1247" name="Changes" comment="" />
+    <list default="true" id="671c6acc-0fd1-4691-b5c0-b42d5a3c1247" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Labs/5_week/labus_1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/5_week/little_lab_1/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Labs/5_week/little_practice_1/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/5_week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/5_week/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,33 +30,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "student-Anel",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Anel/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Merging student-Anel&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Anel/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager">
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-  </component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
