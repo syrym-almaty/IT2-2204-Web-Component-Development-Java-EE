@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="671c6acc-0fd1-4691-b5c0-b42d5a3c1247" name="Changes" comment="" />
+    <list default="true" id="671c6acc-0fd1-4691-b5c0-b42d5a3c1247" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Labs/5_week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/5_week/README.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,7 +32,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "Merging student-Anel",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/Anel/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo",
     "node.js.detected.package.eslint": "true",
