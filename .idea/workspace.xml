@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="671c6acc-0fd1-4691-b5c0-b42d5a3c1247" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Labs/5_week/labus_1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Labs/5_week/little_lab_1/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Labs/5_week/little_practice_1/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Labs/5_week/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/Labs/5_week/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/entity/Course.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/entity/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/entity/Student.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,20 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Merging student-Anel&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Anel/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "student-Anel",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Anel/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -68,6 +67,7 @@
       <workItem from="1727229099934" duration="1642000" />
       <workItem from="1727328883749" duration="2677000" />
       <workItem from="1727933527549" duration="1703000" />
+      <workItem from="1729144478681" duration="743000" />
     </task>
     <servers />
   </component>
