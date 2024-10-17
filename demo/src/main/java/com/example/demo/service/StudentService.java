@@ -1,8 +1,10 @@
 package com.example.demo.service;
 
 import com.example.demo.entity.Student;
+import com.example.demo.entity.Grade; // Импортируйте Grade
 import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudentRepository;
+import com.example.demo.repository.GradeRepository; // Импортируйте GradeRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,6 +16,9 @@ public class StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
+
+    @Autowired
+    private GradeRepository gradeRepository; // Внедрите GradeRepository
 
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
@@ -41,5 +46,16 @@ public class StudentService {
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
     }
-}
 
+    // Добавьте метод для расчета GPA
+    public Double calculateGPA(UUID studentId) {
+        List<Grade> grades = gradeRepository.findByStudentId(studentId);
+        if (grades.isEmpty()) {
+            return 0.0; // Если у студента нет оценок, возвращаем 0
+        }
+        double totalScore = grades.stream()
+                .mapToDouble(Grade::getScore)
+                .sum();
+        return totalScore / grades.size();
+    }
+}
