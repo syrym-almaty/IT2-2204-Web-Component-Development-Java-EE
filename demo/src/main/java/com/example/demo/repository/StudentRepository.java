@@ -1,4 +1,5 @@
 package com.example.demo.repository;
+import java.util.UUID;
 
 import com.example.demo.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
