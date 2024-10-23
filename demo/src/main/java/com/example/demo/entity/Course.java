@@ -15,6 +15,7 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Course {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -26,6 +27,10 @@ public class Course {
     @Column(unique = true)
     private String code;
 
+    // Добавляем поле для количества кредитов курса
+    private int credits;
+
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
 }
+

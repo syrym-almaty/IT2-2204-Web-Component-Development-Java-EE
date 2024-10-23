@@ -1,12 +1,9 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 @Entity
 @Table(name = "grades")
@@ -14,19 +11,18 @@ import java.io.Serializable;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Grade {
-    @EmbeddedId
-    private GradeId id = new GradeId();
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
-    @MapsId("studentId")
+    @JoinColumn(name = "student_id", nullable = false)
     private Student student;
 
     @ManyToOne
-    @MapsId("courseId")
+    @JoinColumn(name = "course_id", nullable = false)
     private Course course;
 
-    @NotNull
-    private Double score;
+    private Double score;  // Оценка студента по курсу
 }
-
-

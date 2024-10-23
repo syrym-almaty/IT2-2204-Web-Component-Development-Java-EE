@@ -9,6 +9,8 @@ import exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class EnrollmentService {
 
@@ -18,12 +20,13 @@ public class EnrollmentService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public void enrollStudentInCourse(Long studentId, Long courseId) {
+    // Изменен тип параметра с Long на UUID
+    public void enrollStudentInCourse(UUID studentId, Long courseId) {
         Student student = studentRepository.findById(studentId)
-            .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
 
         Course course = courseRepository.findById(courseId)
-            .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
 
         if (student.getCourses().size() >= 5) {
             throw new BusinessException("Student cannot enroll in more than 5 courses");
