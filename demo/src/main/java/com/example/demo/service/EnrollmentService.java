@@ -1,5 +1,18 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Course;
+import com.example.demo.entity.Student;
+import com.example.demo.event.EnrollmentEvent;
+import com.example.demo.exception.BusinessException;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.CourseRepository;
+import com.example.demo.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Service;
+
+import java.util.UUID;
+
 @Service
 public class EnrollmentService {
     @Autowired
@@ -8,12 +21,15 @@ public class EnrollmentService {
     @Autowired
     private CourseRepository courseRepository;
 
-    public void enrollStudentInCourse(Long studentId, Long courseId) {
+    @Autowired
+    private ApplicationEventPublisher eventPublisher; // Inject event publisher
+
+    public void enrollStudentInCourse(UUID studentId, UUID courseId) {
         Student student = studentRepository.findById(studentId)
-            .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
 
         Course course = courseRepository.findById(courseId)
-            .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
 
         if (student.getCourses().size() >= 5) {
             throw new BusinessException("Student cannot enroll in more than 5 courses");
@@ -28,5 +44,8 @@ public class EnrollmentService {
 
         studentRepository.save(student);
         courseRepository.save(course);
+
+        // Publish enrollment event
+        eventPublisher.publishEvent(new EnrollmentEvent(this, student, course));
     }
 }

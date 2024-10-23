@@ -6,30 +6,35 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.io.Serializable;
-
 @Entity
 @Table(name = "grades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class Grade {
+
     @EmbeddedId
     private GradeId id = new GradeId();
 
     @ManyToOne
     @MapsId("studentId")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @ManyToOne
     @MapsId("courseId")
+    @JoinColumn(name = "course_id")
     private Course course;
 
     @NotNull
     private Double score;
 
+    // Getters and setters
     public Double getScore() {
         return score;
     }
-}
 
+    public void setScore(Double score) {
+        this.score = score;
+    }
+}

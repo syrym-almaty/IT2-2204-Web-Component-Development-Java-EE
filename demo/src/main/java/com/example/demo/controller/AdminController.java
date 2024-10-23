@@ -6,14 +6,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api/student")
-@PreAuthorize("hasRole('STUDENT')") // Ограничение доступа для студентов
-public class StudentController {
+@RequestMapping("/api/admin")
+@PreAuthorize("hasRole('ADMIN')") // Ограничение доступа для администраторов
+public class AdminController {
 
     @GetMapping("/dashboard")
-    public String getStudentDashboard() {
-        return "Welcome to the Student Dashboard!";
+    public String getAdminDashboard() {
+        return "Welcome to the Admin Dashboard!";
     }
 
-    // Другие студенческие эндпоинты
+    // Другие админские эндпоинты
 }

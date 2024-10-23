@@ -1,4 +1,4 @@
-package com.example.demo.strategy;
+package com.example.demo.Strategy;
 
 import com.example.demo.Strategy.GradingStrategy;
 

@@ -26,6 +26,15 @@ public class Course {
     @Column(unique = true)
     private String code;
 
+    // New field for course credits
+    @Column(nullable = false)
+    private int credits;
+
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
+
+    // Getter method for credits
+    public int getCredits() {
+        return credits;
+    }
 }
