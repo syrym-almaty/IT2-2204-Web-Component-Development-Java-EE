@@ -3,20 +3,23 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-
 import java.util.Set;
 
 @Entity
 public class User implements UserDetails {
     @Id
     private String username;
+
     private String password;
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(
+        name = "user_roles",
+        joinColumns = @JoinColumn(name = "user_username"),
+        inverseJoinColumns = @JoinColumn(name = "role_name")
+    )
     private Set<Role> roles;
-
-    // Геттеры и сеттеры для полей
 
     @Override
     public Set<? extends GrantedAuthority> getAuthorities() {

@@ -1,6 +1,6 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.User;
+import com.example.demo.entity.User; // Импортируйте User
 import com.example.demo.repository.UserRepository; // Импортируйте UserRepository
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -16,8 +16,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        User user = userRepository.findById(username).orElseThrow(() ->
+        User user = userRepository.findByUsername(username).orElseThrow(() ->
                 new UsernameNotFoundException("User not found: " + username));
-        return user;
+        return user; // Возвращаем объект User, который реализует UserDetails
     }
 }

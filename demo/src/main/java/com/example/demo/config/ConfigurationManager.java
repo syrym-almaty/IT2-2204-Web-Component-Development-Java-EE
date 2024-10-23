@@ -4,7 +4,7 @@ public class ConfigurationManager {
     private static ConfigurationManager instance;
 
     private ConfigurationManager() {
-        // Загрузка конфигурации
+        // Load configuration
     }
 
     public static synchronized ConfigurationManager getInstance() {

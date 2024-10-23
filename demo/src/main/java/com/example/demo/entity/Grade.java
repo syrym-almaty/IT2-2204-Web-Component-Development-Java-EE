@@ -5,7 +5,6 @@ import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "grades")
@@ -27,7 +26,15 @@ public class Grade {
     @NotNull
     private Double score;
 
-    public Double getScore() { // Добавьте метод getScore, если его нет
-        return score;
+    // Новое поле для хранения рассчитанной оценки
+    private Double calculatedGrade;
+
+    // Геттер и Сеттер для calculatedGrade
+    public Double getCalculatedGrade() {
+        return calculatedGrade;
+    }
+
+    public void setCalculatedGrade(Double calculatedGrade) {
+        this.calculatedGrade = calculatedGrade;
     }
 }

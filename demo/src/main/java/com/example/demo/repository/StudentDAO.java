@@ -1,5 +1,10 @@
 package com.example.demo.repository;
 
+import com.example.demo.entity.Student;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import org.springframework.stereotype.Repository;
+
 @Repository
 public class StudentDAO {
     @PersistenceContext

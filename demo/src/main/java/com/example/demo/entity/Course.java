@@ -1,10 +1,11 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import jakarta.validation.constraints.NotBlank;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -25,6 +26,10 @@ public class Course {
     @Column(unique = true)
     private String code;
 
+    private int credits; // Добавьте это поле
+
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
+
+    // Если вы используете Lombok @Data, вам не нужно писать getCredits() вручную
 }

@@ -9,7 +9,6 @@ public class Role implements GrantedAuthority {
     @Id
     private String name;
 
-    // Геттер для имени роли
     public String getName() {
         return name;
     }

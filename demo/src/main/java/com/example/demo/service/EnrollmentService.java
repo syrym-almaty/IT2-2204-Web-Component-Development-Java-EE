@@ -1,19 +1,29 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Course;
+import com.example.demo.entity.Student;
+import com.example.demo.exception.BusinessException;
+import com.example.demo.exception.ResourceNotFoundException;
+import com.example.demo.repository.StudentRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.data.jpa.repository.JpaRepository;
+
 @Service
 public class EnrollmentService {
+
     @Autowired
     private StudentRepository studentRepository;
 
     @Autowired
-    private CourseRepository courseRepository;
+    private JpaRepository<Course, Long> courseRepository; // Используем JpaRepository напрямую
 
     public void enrollStudentInCourse(Long studentId, Long courseId) {
         Student student = studentRepository.findById(studentId)
-            .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
 
         Course course = courseRepository.findById(courseId)
-            .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Course not found"));
 
         if (student.getCourses().size() >= 5) {
             throw new BusinessException("Student cannot enroll in more than 5 courses");
