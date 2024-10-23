@@ -2,9 +2,9 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
 
 import java.io.Serializable;
 
@@ -29,11 +29,4 @@ public class Grade {
     private Double score;
 }
 
-@Embeddable
-@Data
-@NoArgsConstructor
-@AllArgsConstructor
-public class GradeId implements Serializable {
-    private Long studentId;
-    private Long courseId;
-}
+

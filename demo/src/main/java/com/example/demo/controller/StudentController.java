@@ -1,45 +1,66 @@
 package com.example.demo.controller;
 
-import com.example.demo.entity.Grade;
 import com.example.demo.entity.Student;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.service.StudentService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.Set;
+import java.util.List;
+import java.util.UUID;
 
 @RestController
-@RequestMapping("/api/student")
-@PreAuthorize("hasRole('STUDENT')")
+@RequestMapping("/api/students")
+@Tag(name = "Student Controller", description = "CRUD operations for Students")
 public class StudentController {
 
     @Autowired
     private StudentService studentService;
 
-    @GetMapping("/gpa/{studentId}")
-    public Double calculateGPA(@PathVariable Long studentId) {
-        Student student = studentService.findById(studentId)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+    @Operation(summary = "Get All Students", description = "Retrieve a list of all students")
+    @ApiResponse(responseCode = "200", description = "Successfully retrieved list")
+    @GetMapping
+    public List<Student> getAllStudents() {
+        return studentService.getAllStudents();
+    }
 
-        Set<Grade> grades = student.getGrades();
-        if (grades.isEmpty()) {
-            return 0.0;
-        }
+    @Operation(summary = "Create Student", description = "Create a new student")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "201", description = "Student created successfully"),
+        @ApiResponse(responseCode = "400", description = "Invalid input")
+    })
+    @PostMapping
+    public Student createStudent(
+            @Parameter(description = "Student object to be created", required = true)
+            @RequestBody Student student) {
+        return studentService.createStudent(student);
+    }
 
-        double totalPoints = 0.0;
-        int totalCredits = 0;
+    @Operation(summary = "Get Student by ID", description = "Retrieve a student by their ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "200", description = "Successfully retrieved student"),
+        @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @GetMapping("/{id}")
+    public Student getStudentById(
+            @Parameter(description = "UUID of the student to retrieve", required = true)
+            @PathVariable UUID id) {
+        return studentService.getStudentById(id);
+    }
 
-        for (Grade grade : grades) {
-            int credits = grade.getCourse().getCredits();
-            totalPoints += grade.getScore() * credits;
-            totalCredits += credits;
-        }
-
-        return totalPoints / totalCredits;
+    @Operation(summary = "Delete Student", description = "Delete a student by their ID")
+    @ApiResponses(value = {
+        @ApiResponse(responseCode = "204", description = "Student deleted successfully"),
+        @ApiResponse(responseCode = "404", description = "Student not found")
+    })
+    @DeleteMapping("/{id}")
+    public void deleteStudent(
+            @Parameter(description = "UUID of the student to delete", required = true)
+            @PathVariable UUID id) {
+        studentService.deleteStudent(id);
     }
 }

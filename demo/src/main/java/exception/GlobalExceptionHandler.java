@@ -1,4 +1,4 @@
-package com.example.demo.exception;
+package exception;
 
 import exception.ResourceNotFoundException;
 import org.springframework.http.HttpStatus;

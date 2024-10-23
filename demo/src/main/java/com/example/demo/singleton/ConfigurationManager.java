@@ -1,4 +1,4 @@
-package com.example.demo.configuration;
+package com.example.demo.singleton;
 
 public class ConfigurationManager {
     private static ConfigurationManager instance;

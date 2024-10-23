@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class StudentDAO {
+
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -18,5 +19,5 @@ public class StudentDAO {
         entityManager.persist(student);
     }
 
-    // Другие методы доступа к данным...
+    // Other data access methods...
 }
