@@ -1,15 +1,17 @@
 package com.example.demo.service;
 
+import com.example.demo.entity.Course;
 import com.example.demo.entity.Grade;
 import com.example.demo.entity.Student;
+import com.example.demo.exception.BusinessException;
+import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudentRepository;
-import exception.ResourceNotFoundException;  // Обратите внимание на корректные импорты
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Set;
-import java.util.UUID;  // Используется для идентификаторов
+import java.util.UUID;
 
 @Service
 public class StudentService {
@@ -17,52 +19,83 @@ public class StudentService {
     @Autowired
     private StudentRepository studentRepository;
 
-    // Метод для получения всех студентов
+    // Получение всех студентов
     public List<Student> getAllStudents() {
         return studentRepository.findAll();
     }
 
-    // Метод для создания нового студента
+    // Создание нового студента
     public Student createStudent(Student student) {
         return studentRepository.save(student);
     }
 
-    // Метод для получения студента по UUID
+    // Получение студента по ID
     public Student getStudentById(UUID id) {
         return studentRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
     }
 
-    // Метод для удаления студента по UUID
+    // Обновление студента
+    public Student updateStudent(UUID id, Student updatedStudent) {
+        return studentRepository.findById(id)
+                .map(student -> {
+                    student.setName(updatedStudent.getName());
+                    student.setEmail(updatedStudent.getEmail());
+                    student.setGpa(updatedStudent.getGpa()); // Обновляем GPA, если это требуется
+                    // Обновите другие поля по мере необходимости
+                    return studentRepository.save(student);
+                })
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
+    }
+
+    // Удаление студента
     public void deleteStudent(UUID id) {
+        studentRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
         studentRepository.deleteById(id);
     }
 
-    // Метод для расчета GPA студента
+    // Расчет GPA студента
     public Double calculateGPA(UUID studentId) {
-        // Получаем студента по UUID
-        Student student = getStudentById(studentId);
+        Student student = studentRepository.findById(studentId)
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + studentId));
 
-        // Получаем список оценок студента
         Set<Grade> grades = student.getGrades();
-
-        // Если нет оценок, возвращаем GPA 0.0
         if (grades.isEmpty()) {
             return 0.0;
         }
 
-        // Переменные для общего количества баллов и кредитов
         double totalPoints = 0.0;
         int totalCredits = 0;
 
-        // Расчет общего количества баллов и кредитов
         for (Grade grade : grades) {
-            int credits = grade.getCourse().getCredits();  // Получаем количество кредитов за курс
-            totalPoints += grade.getScore() * credits;  // Умножаем оценку на кредиты
-            totalCredits += credits;  // Суммируем кредиты
+            int credits = grade.getCourse().getCredits();
+            totalPoints += grade.getScore() * credits;
+            totalCredits += credits;
         }
 
-        // Возвращаем рассчитанный GPA
-        return totalPoints / totalCredits;
+        return totalCredits == 0 ? 0.0 : totalPoints / totalCredits;
+    }
+
+    // Проверка на ограничение количества курсов при зачислении
+    public void enrollStudentInCourse(Student student, Course course) {
+        // Ограничение на 5 курсов для студента
+        if (student.getCourses().size() >= 5) {
+            throw new BusinessException("Cannot enroll in more than 5 courses.");
+        }
+
+        // Ограничение на 30 студентов для курса
+        if (course.getStudents().size() >= 30) {
+            throw new BusinessException("Course capacity reached.");
+        }
+
+        // Добавляем курс студенту
+        student.getCourses().add(course);
+        studentRepository.save(student);
+    }
+
+    // Проверка существования студента по ID
+    public boolean existsById(UUID id) {
+        return studentRepository.existsById(id);
     }
 }

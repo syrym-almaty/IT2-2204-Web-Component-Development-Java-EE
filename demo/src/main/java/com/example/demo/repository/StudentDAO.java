@@ -1,4 +1,4 @@
-package com.example.demo.dao;
+package com.example.demo.repository;
 
 import com.example.demo.entity.Student;
 import jakarta.persistence.EntityManager;
@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class StudentDAO {
-
     @PersistenceContext
     private EntityManager entityManager;
 
@@ -19,5 +18,4 @@ public class StudentDAO {
         entityManager.persist(student);
     }
 
-    // Other data access methods...
 }

@@ -1,17 +1,18 @@
 package com.example.demo.entity;
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 @Embeddable
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
 public class GradeId implements Serializable {
-    private Long studentId;
-    private Long courseId;
+    private UUID studentId;
+    private UUID courseId;
 }
