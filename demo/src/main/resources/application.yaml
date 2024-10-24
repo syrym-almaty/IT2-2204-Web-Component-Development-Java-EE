@@ -2,6 +2,15 @@ spring:
   application:
     name: demo
 
+  spring:
+    security:
+      oauth2:
+        client:
+          registration:
+            github:
+              clientId: github-client-id
+              clientSecret: github-client-secret
+
   datasource:
     url: jdbc:h2:file:./data/demo-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
     driverClassName: org.h2.Driver
@@ -17,6 +26,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  sql:
+    init:
+      platform: h2
 
 springdoc:
   api-docs:
@@ -25,7 +37,3 @@ springdoc:
     path: /swagger-ui.html
     operationsSorter: method
     tagsSorter: name
-
-springfox:
-  documentation:
-    enabled: true

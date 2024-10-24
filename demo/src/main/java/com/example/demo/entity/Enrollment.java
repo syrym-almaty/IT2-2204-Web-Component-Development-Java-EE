@@ -11,6 +11,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Enrollment {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,4 +25,6 @@ public class Enrollment {
     private Course course;
 
     private String enrollmentDate;
+
+    // Optionally, you can add any additional methods you need
 }

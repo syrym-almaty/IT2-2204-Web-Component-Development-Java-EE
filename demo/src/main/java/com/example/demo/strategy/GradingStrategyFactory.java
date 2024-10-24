@@ -7,6 +7,6 @@ public class GradingStrategyFactory {
         } else if (type.equalsIgnoreCase("percentage")) {
             return new PercentageGradingStrategy();
         }
-        return null;
+        throw new IllegalArgumentException("Invalid grading strategy type: " + type);
     }
 }
