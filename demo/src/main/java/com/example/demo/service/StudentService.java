@@ -42,4 +42,6 @@ public class StudentService {
                 })
                 .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
     }
-}
+
+   }
+
