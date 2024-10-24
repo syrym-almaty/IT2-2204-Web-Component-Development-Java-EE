@@ -44,7 +44,6 @@
 		</dependency>
 
 
-
 		<!-- Spring Data JPA for Database Interaction -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

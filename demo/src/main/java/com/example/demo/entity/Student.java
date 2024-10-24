@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Entity
+
 @Table(name = "students")
 public class Student {
 
@@ -35,6 +37,7 @@ public class Student {
             joinColumns = @JoinColumn(name = "student_id"),
             inverseJoinColumns = @JoinColumn(name = "course_id")
     )
+    @JsonIgnoreProperties("students") // игнорируем студентов внутри курса
     private Set<Course> courses = new HashSet<>();
 
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -45,10 +48,6 @@ public class Student {
     // Constructors
     public Student() {}
 
-    public Student(String name, String email) {
-        this.name = name;
-        this.email = email;
-    }
 
     public Student(String name, String email, Double gpa) {
         this.name = name;
@@ -56,7 +55,6 @@ public class Student {
         this.gpa = gpa;
     }
 
-    // Getters and Setters
     public UUID getId() {
         return id;
     }

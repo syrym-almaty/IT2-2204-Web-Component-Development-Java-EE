@@ -1,5 +1,6 @@
 package com.example.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.GenericGenerator;
@@ -29,8 +30,10 @@ public class Course {
 
     private int credits;
 
+    @JsonIgnoreProperties("courses") // игнорируем студентов внутри курса
     @ManyToMany(mappedBy = "courses")
     private Set<Student> students = new HashSet<>();
+
 
     // Replace the Set<Student> students with the following
     @OneToMany(mappedBy = "course", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
