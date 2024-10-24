@@ -41,6 +41,7 @@ public class StudentService {
                 .map(student -> {
                     student.setName(updatedStudent.getName());
                     student.setEmail(updatedStudent.getEmail());
+                    student.setGpa(updatedStudent.getGpa()); // Обновляем GPA, если это требуется
                     // Обновите другие поля по мере необходимости
                     return studentRepository.save(student);
                 })
@@ -91,5 +92,10 @@ public class StudentService {
         // Добавляем курс студенту
         student.getCourses().add(course);
         studentRepository.save(student);
+    }
+
+    // Проверка существования студента по ID
+    public boolean existsById(UUID id) {
+        return studentRepository.existsById(id);
     }
 }

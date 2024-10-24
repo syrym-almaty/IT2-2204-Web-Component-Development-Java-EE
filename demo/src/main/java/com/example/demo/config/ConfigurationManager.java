@@ -1,6 +1,6 @@
 package com.example.demo.config;
 
-public class ConfigurationManager {
+public class  ConfigurationManager {
     private static ConfigurationManager instance;
 
     private ConfigurationManager() {

@@ -7,7 +7,9 @@ import jakarta.persistence.ManyToMany;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
 public class User implements UserDetails {
@@ -19,5 +21,58 @@ public class User implements UserDetails {
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    // Implement methods from UserDetails interface
+    // Getters and setters
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean isEnabled() {
+        return enabled;
+    }
+
+    public void setEnabled(boolean enabled) {
+        this.enabled = enabled;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    // Methods from UserDetails interface
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        // Return the roles as GrantedAuthorities
+        return roles.stream().collect(Collectors.toSet());
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true; // Assuming no account expiration logic
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true; // Assuming no account lock logic
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true; // Assuming no credentials expiration logic
+    }
 }
