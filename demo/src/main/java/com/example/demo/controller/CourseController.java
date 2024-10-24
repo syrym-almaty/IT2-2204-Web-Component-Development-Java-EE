@@ -8,6 +8,7 @@ import com.example.demo.service.CourseService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.modelmapper.ModelMapper;
@@ -20,7 +21,8 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/courses")
-@PreAuthorize("hasRole('ADMIN')")
+@PreAuthorize("hasRole('STUDENT')")
+@SecurityRequirement(name = "bearerAuth")  // Applies JWT security to this controller
 @Tag(name = "Course Controller", description = "CRUD operations for Courses")
 public class CourseController {
     CourseService courseService;

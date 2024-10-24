@@ -20,16 +20,17 @@ public class CustomUserDetails implements UserDetails {
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = user.getRoles().stream()
-                .map(role -> new SimpleGrantedAuthority(role.getName()))
+                .map(role -> new SimpleGrantedAuthority("ROLE_" + role.getName()))  // Добавляем префикс ROLE_
                 .collect(Collectors.toList());
 
         // Example: Adding custom logic based on student GPA
         if (user.getStudent() != null) {
-            authorities.add(new SimpleGrantedAuthority("ROLE_HONOR_STUDENT"));
+            authorities.add(new SimpleGrantedAuthority("ROLE_STUDENT"));
         }
 
         return authorities;
     }
+
 
     @Override
     public String getPassword() {

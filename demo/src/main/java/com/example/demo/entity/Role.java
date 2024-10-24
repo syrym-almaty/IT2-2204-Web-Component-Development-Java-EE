@@ -23,7 +23,7 @@ public class Role implements GrantedAuthority {
     private Set<UserEntity> userEntities = new HashSet<>();
     @Override
     public String getAuthority() {
-        return "";
+        return "ROLE_" + name;
     }
 
     // Implement methods from GrantedAuthority interface
