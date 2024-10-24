@@ -17,28 +17,28 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/login", "/css/**", "/js/**").permitAll()  // Разрешаем доступ к странице логина и статике
-                                .anyRequest().authenticated()  // Защищаем остальные страницы
+                                .requestMatchers("/login", "/css/**", "/js/**").permitAll()
+                                .anyRequest().authenticated()
                 )
-                .formLogin(formLogin ->  // Включаем форму логина
+                .formLogin(formLogin ->
                         formLogin
-                                .loginPage("/login")  // Указываем кастомную страницу входа
+                                .loginPage("/login")
                                 .permitAll()
                 )
-                .oauth2Login(oauth2Login ->  // Включаем OAuth2 (GitHub)
+                .oauth2Login(oauth2Login ->
                         oauth2Login
-                                .loginPage("/login")  // Используем ту же страницу входа
+                                .loginPage("/login")
                 );
 
         return http.build();
     }
 
-    // Создаем пользователей для простой аутентификации (через форму)
+
     @Bean
     public UserDetailsService userDetailsService() {
         UserDetails user = User.withDefaultPasswordEncoder()
-                .username("user")
-                .password("password")
+                .username("nurdaulet")
+                .password("23112004")
                 .roles("USER")
                 .build();
 
