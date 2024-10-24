@@ -1,25 +1,35 @@
 package com.example.demo.controller;
 
+import com.example.demo.DTO.StudentDTO;
 import com.example.demo.entity.Student;
 import com.example.demo.service.StudentService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.modelmapper.ModelMapper;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.UUID;
-
 @RestController
 @RequestMapping("/api/students")
+@PreAuthorize("hasRole('STUDENT')")
 @Tag(name = "Student Controller", description = "CRUD operations for Students")
+@SecurityRequirement(name = "bearerAuth")  // Applies JWT security to this controller
 public class StudentController {
 
-    @Autowired
     private StudentService studentService;
+    private ModelMapper modelMapper;
+
+    public StudentController(StudentService studentService, ModelMapper modelMapper) {
+        this.studentService = studentService;
+        this.modelMapper = modelMapper;
+    }
 
     @Operation(summary = "Get All Students", description = "Retrieve a list of all students")
     @ApiResponse(responseCode = "200", description = "Successfully retrieved list")
@@ -35,10 +45,17 @@ public class StudentController {
     })
     @PostMapping
     public Student createStudent(
-            @Parameter(description = "Student object to be created", required = true)
-            @RequestBody Student student) {
-        return studentService.createStudent(student);
+            @RequestBody StudentDTO studentDTO) {
+        return studentService.createStudent(convertToEntity(studentDTO));
     }
+    @PutMapping("/{studentId}/courses")
+    public ResponseEntity<String> addCoursesToStudent(
+            @PathVariable UUID studentId,
+            @RequestBody List<UUID> courseIds) {
+        System.out.println(courseIds);
+        return studentService.addCoursesToStudent(studentId, courseIds);
+    }
+
 
     @Operation(summary = "Get Student by ID", description = "Retrieve a student by their ID")
     @ApiResponses(value = {
@@ -76,5 +93,12 @@ public class StudentController {
             @Parameter(description = "Updated student object", required = true)
             @RequestBody Student updatedStudent) {
         return studentService.updateStudent(id, updatedStudent);
+    }
+    public Student convertToEntity(StudentDTO studentDTO) {
+        return modelMapper.map(studentDTO, Student.class);
+    }
+
+    public StudentDTO convertToDTO(Student student) {
+        return modelMapper.map(student, StudentDTO.class);
     }
 }
