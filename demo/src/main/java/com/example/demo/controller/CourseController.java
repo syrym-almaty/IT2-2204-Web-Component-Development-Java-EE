@@ -21,7 +21,6 @@ import java.util.UUID;
 @RestController
 @AllArgsConstructor
 @RequestMapping("/api/courses")
-@PreAuthorize("hasRole('STUDENT')")
 @SecurityRequirement(name = "bearerAuth")  // Applies JWT security to this controller
 @Tag(name = "Course Controller", description = "CRUD operations for Courses")
 public class CourseController {
