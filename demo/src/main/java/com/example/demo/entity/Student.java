@@ -1,26 +1,25 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.util.HashSet;
-import java.util.Set;
+
+import jakarta.persistence.*;
+import org.hibernate.annotations.GenericGenerator;
 import java.util.UUID;
+import java.util.*;
 
 @Entity
 @Table(name = "students")
 @Data
-@AllArgsConstructor
 public class Student {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(
-        name = "UUID",
-        strategy = "org.hibernate.id.UUIDGenerator"
+            name = "UUID",
+            strategy = "org.hibernate.id.UUIDGenerator"
     )
     @Column(columnDefinition = "uuid")
     private UUID id;
@@ -53,7 +52,7 @@ public class Student {
         this.name = name;
     }
 
-	public String getEmail() {
+    public String getEmail() {
         return email;
     }
 
@@ -61,6 +60,8 @@ public class Student {
         this.email = email;
     }
 
+
+    //connector
     @ManyToMany
     @JoinTable(
             name = "enrollments",
@@ -72,8 +73,4 @@ public class Student {
     // GPA field
     private Double gpa;
 
-    public Set<Grade> getGrades() {
-        return getGrades();
-    }
 }
-

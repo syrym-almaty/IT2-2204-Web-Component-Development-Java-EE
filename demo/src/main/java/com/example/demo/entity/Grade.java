@@ -1,18 +1,21 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.EmbeddedId;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.MapsId;
-import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotNull;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.*;
+import org.springframework.validation.*;
+import org.hibernate.annotations.GenericGenerator;
+import java.util.UUID;
+import java.util.*;
+import java.io.*;
+
+@Entity
 @Table(name = "grades")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Getter
 public class Grade {
     @EmbeddedId
     private GradeID id = new GradeID();
@@ -27,4 +30,5 @@ public class Grade {
 
     @NotNull
     private Double score;
+
 }

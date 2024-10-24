@@ -1,18 +1,14 @@
 package com.example.demo.service;
 
-import com.example.demo.entity.Grade;
-import com.example.demo.entity.GradeID;
 import com.example.demo.entity.Student;
-import com.example.demo.exception.ResourceNotFoundException;
 import com.example.demo.repository.StudentRepository;
+import com.example.demo.repository.StudentDAO;
+import com.example.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
 import java.util.UUID;
-
-import static org.springframework.data.jpa.domain.AbstractPersistable_.id;
 
 @Service
 public class StudentService {
@@ -35,29 +31,15 @@ public class StudentService {
     public void deleteStudent(UUID id) {
         studentRepository.deleteById(id);
     }
-    public void GradeID(UUID id) {
-        studentRepository.findById(Grade);
+
+    public Student updateStudent(UUID id, Student updatedStudent) {
+        return studentRepository.findById(id)
+                .map(student -> {
+                    student.setName(updatedStudent.getName());
+                    student.setEmail(updatedStudent.getEmail());
+                    // Add other fields as necessary
+                    return studentRepository.save(student);
+                })
+                .orElseThrow(() -> new ResourceNotFoundException("Student not found with id " + id));
     }
-    public Double calculateGPA(Long studentId) {
-        UUID GradeID;
-        Student student = studentRepository.findById()
-                .orElseThrow(() -> new ResourceNotFoundException("Student not found"));
-
-        Set<Grade> grades = student.getGrades();
-        if (grades.isEmpty()) {
-            return 0.0;
-        }
-
-        double totalPoints = 0.0;
-        int totalCredits = 0;
-
-        for (Grade grade : grades) {
-            int credits = grade.getCourse().getCredits();
-            totalPoints += grade.getScore() * credits;
-            totalCredits += credits;
-        }
-
-        return totalPoints / totalCredits;
-    }
-
 }
