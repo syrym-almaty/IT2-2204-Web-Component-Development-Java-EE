@@ -2,6 +2,8 @@ package com.example.demo.service;
 
 import com.example.demo.entity.Student;
 import com.example.demo.repository.StudentRepository;
+import com.example.demo.repository.StudentDAO;
+import com.example.demo.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -30,7 +32,10 @@ public class StudentService {
         studentRepository.deleteById(id);
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> student-Zhantore12
     public Student updateStudent(UUID id, Student updatedStudent) {
         return studentRepository.findById(id)
                 .map(student -> {

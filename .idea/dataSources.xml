@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
     <data-source source="LOCAL" name="demo-db" uuid="4dbd1a9e-bb04-4267-a94f-e877570f582d">
+=======
+    <data-source source="LOCAL" name="demo-db" uuid="233aebf4-64b6-45ae-976f-38973946167f">
+>>>>>>> student-Zhantore12
       <driver-ref>h2.unified</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
