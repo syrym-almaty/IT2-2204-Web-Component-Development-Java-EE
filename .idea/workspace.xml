@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6bd45030-dff0-4c03-b92b-37ba59ae1080" name="Changes" comment="" />
+    <list default="true" id="6bd45030-dff0-4c03-b92b-37ba59ae1080" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/'secret key Madina'" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/'secret key Madina'.pub" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IT2-2204-Web-Component-Development-Java-EE" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,7 +23,7 @@
         <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/IT2-2204-Web-Component-Development-Java-EE" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="KubernetesApiPersistence">{}</component>
   <component name="KubernetesApiProvider">{
@@ -35,15 +42,15 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "student-Madina",
+    "git-widget-placeholder": "student-Merei",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Мадина/IdeaProjects/IT2-2204-SFT6310-32-Lab-Web-Component-Development-Java-EE-Lab/demo",
+    "last_opened_file_path": "C:/Users/Мерей/Desktop/3 course/java 5 lab/IT2-2204-Web-Component-Development-Java-EE",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.Mappings",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -95,6 +102,8 @@
       <workItem from="1727935721476" duration="454000" />
       <workItem from="1727936186487" duration="1191000" />
       <workItem from="1727937514194" duration="1983000" />
+      <workItem from="1729729788297" duration="805000" />
+      <workItem from="1729744123115" duration="674000" />
     </task>
     <servers />
   </component>
