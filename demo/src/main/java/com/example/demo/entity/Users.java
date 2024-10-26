@@ -9,21 +9,19 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 @Entity
-public class User implements UserDetails {
+public class Users implements UserDetails {
     @Id
     private String username;
-
     private String password;
-
     private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles;
 
-    // Getters and Setters
-
+    // Getters and setters
     public String getUsername() {
         return username;
     }
@@ -56,23 +54,25 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    // Methods from UserDetails interface
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
+        // Return the roles as GrantedAuthorities
+        return roles.stream().collect(Collectors.toSet());
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return true;
+        return true; // Assuming no account expiration logic
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return true;
+        return true; // Assuming no account lock logic
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return true;
+        return true; // Assuming no credentials expiration logic
     }
 }

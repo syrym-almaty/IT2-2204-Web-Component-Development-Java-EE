@@ -1,12 +1,12 @@
-package com.example.demo.Strategy;
+package com.example.demo.strategy;
 
 public class GradingStrategyFactory {
     public static GradingStrategy getStrategy(String type) {
         if (type.equalsIgnoreCase("letter")) {
-            return new com.example.demo.Strategy.LetterGradingStrategy();
+            return new LetterGradingStrategy();
         } else if (type.equalsIgnoreCase("percentage")) {
             return new PercentageGradingStrategy();
         }
-        return null;
+        throw new IllegalArgumentException("Invalid grading strategy type: " + type);
     }
 }
