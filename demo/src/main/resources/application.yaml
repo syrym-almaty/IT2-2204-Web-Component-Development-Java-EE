@@ -2,12 +2,20 @@ spring:
   application:
     name: demo
 
+  spring:
+    security:
+      oauth2:
+        client:
+          registration:
+            github:
+              clientId: Ov23liSfSU13OuYHT0Ut
+              clientSecret: 295ae30dcf9e9907437405420088f962ab98d9b1
+
   datasource:
     url: jdbc:h2:file:./data/demo-db;DB_CLOSE_ON_EXIT=FALSE;AUTO_RECONNECT=TRUE
     driverClassName: org.h2.Driver
     username: sa
     password: password
-    platform: h2
 
   h2:
     console:
@@ -18,6 +26,9 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  sql:
+    init:
+      platform: h2
 
 springdoc:
   api-docs:
