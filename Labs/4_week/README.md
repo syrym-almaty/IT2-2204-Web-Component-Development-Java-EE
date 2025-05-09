@@ -1,4 +1,4 @@
-# 📝 **Student Task: Implement "Update" Functionality for Student Records**
+пе# 📝 **Student Task: Implement "Update" Functionality for Student Records**
 
 ## 📚 **Objective**
 Enhance the existing Student Management System by adding the **"Update"** feature. This will allow users to modify existing student records through the API, completing the basic CRUD (Create, Read, Update, Delete) operations.
