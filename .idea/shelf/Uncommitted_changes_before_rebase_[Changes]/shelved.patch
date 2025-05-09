@@ -1,0 +1,13 @@
+Index: demo/modules/Abdikarimov_Aran/controller/controller.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/demo/modules/Abdikarimov_Aran/controller/controller.java b/demo/modules/Abdikarimov_Aran/controller/controller.java
+new file mode 100644
+--- /dev/null	(date 1726124273156)
++++ b/demo/modules/Abdikarimov_Aran/controller/controller.java	(date 1726124273156)
+@@ -0,0 +1,3 @@
++public class controller {
++    
++}
